@@ -1,0 +1,39 @@
+spring:
+  profiles:
+    active: dev
+  jpa:
+    show-sql: true
+    naming:
+      physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: mysql
+    
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/springjpa_dev
+    username: springjpa_dev_user
+    password: root
+    platform: mysql
+    initialization-mode: always
+    continue-on-error: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+  
+---
+spring:
+  profiles: prod
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/springjpa_prod
+    username: springjpa_prod_user
+    password: root
+    platform: mysql
+    initialization-mode: always
+    continue-on-error: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
