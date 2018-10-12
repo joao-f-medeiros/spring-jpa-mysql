@@ -1,15 +1,11 @@
 package com.javaee.springjpamysql.bootstrap;
 
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.stereotype.Component;
 
 import com.javaee.springjpamysql.domain.Category;
 import com.javaee.springjpamysql.repositories.CategoryRepository;
 
-@Component
-@Profile({"dev", "prod"})
 public class ApplicationBootstrap implements ApplicationListener<ContextRefreshedEvent>{
 
 	private CategoryRepository categoryRepository;

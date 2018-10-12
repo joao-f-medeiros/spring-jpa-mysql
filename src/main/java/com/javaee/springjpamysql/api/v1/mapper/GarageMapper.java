@@ -4,8 +4,6 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.springframework.stereotype.Component;
-
 import com.javaee.springjpamysql.api.v1.model.GarageDTO;
 import com.javaee.springjpamysql.domain.Category;
 import com.javaee.springjpamysql.domain.Garage;
@@ -15,7 +13,6 @@ import com.javaee.springjpamysql.repositories.CategoryRepository;
 import com.javaee.springjpamysql.repositories.GasStationRepository;
 import com.javaee.springjpamysql.repositories.VehicleRepository;
 
-@Component
 public class GarageMapper {
 	
 	private GasStationMapper gasStationMapper;

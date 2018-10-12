@@ -1,11 +1,8 @@
 package com.javaee.springjpamysql.api.v1.mapper;
 
-import org.springframework.stereotype.Component;
-
 import com.javaee.springjpamysql.api.v1.model.GasStationDTO;
 import com.javaee.springjpamysql.domain.GasStation;
 
-@Component
 public class GasStationMapper {
 
 	public GasStationDTO gasStationToGasStationDTO(GasStation gasStation) {

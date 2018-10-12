@@ -6,8 +6,6 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.javaee.springjpamysql.api.v1.mapper.GarageMapper;
 import com.javaee.springjpamysql.api.v1.model.GarageDTO;
@@ -60,7 +58,6 @@ public class GarageServiceImpl implements GarageService {
 	}
 
 	@Override
-	@Transactional(propagation=Propagation.REQUIRED)
 	public GarageDTO createNew(GarageDTO garageDTO) {
 		Garage detachedGarage = garageMapper.garageDTOToGarage(garageDTO);
 		Garage garageSaved = garageRepository.save(detachedGarage);
@@ -68,7 +65,6 @@ public class GarageServiceImpl implements GarageService {
 	}
 
 	@Override
-	@Transactional(propagation=Propagation.REQUIRED)
 	public GarageDTO save(Long id, GarageDTO garageDTO) {
 		Garage detachedGarage = garageMapper.garageDTOToGarage(garageDTO);
 		detachedGarage.setId(id);
@@ -98,7 +94,6 @@ public class GarageServiceImpl implements GarageService {
 	}
 
 	@Override
-	@Transactional(propagation=Propagation.REQUIRED)
 	public void deleteById(Long id) {
 		garageRepository.deleteById(id);
 	}

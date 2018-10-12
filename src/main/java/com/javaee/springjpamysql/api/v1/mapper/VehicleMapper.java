@@ -1,11 +1,8 @@
 package com.javaee.springjpamysql.api.v1.mapper;
 
-import org.springframework.stereotype.Component;
-
 import com.javaee.springjpamysql.api.v1.model.VehicleDTO;
 import com.javaee.springjpamysql.domain.Vehicle;
 
-@Component
 public class VehicleMapper {
 
 	public VehicleDTO vehicleToVehicleDTO(Vehicle vehicle) {
