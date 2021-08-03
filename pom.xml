@@ -71,9 +71,35 @@
 				<groupId>com.amashchenko.maven.plugin</groupId>
 				<artifactId>gitflow-maven-plugin</artifactId>
 				<version>1.16.0</version>
+				<configuration>
+					<!-- We use maven wrapper in all our projects instead of a local maven installation -->
+					<mvnExecutable>./mvnw</mvnExecutable>
+
+					<!-- Don’t push to the git remote. Very useful for testing locally -->
+					<pushRemote>true</pushRemote>
+
+					<!-- Set to true to immediately bump the development version when creating a release branch -->
+					<commitDevelopmentVersionAtStart>false</commitDevelopmentVersionAtStart>
+
+					<!-- Which digit to increase in major.minor.patch versioning, the values being 0.1.2 respectively.
+                         By default the rightmost number is increased.
+                         Pass in the number via parameter or profile to allow configuration,
+                         since everything set in the file can't be overwritten via command line -->
+					<versionDigitToIncrement>${gitflowDigitToIncrement}</versionDigitToIncrement>
+
+					<!-- Execute mvn verify before release -->
+					<preReleaseGoals>verify</preReleaseGoals>
+					<preHotfixGoals>verify</preHotfixGoals>
+
+					<!-- Configure branches -->
+					<gitFlowConfig>
+						<productionBranch>master</productionBranch>
+						<!-- default is develop, but we use development -->
+						<developmentBranch>develop</developmentBranch>
+					</gitFlowConfig>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
